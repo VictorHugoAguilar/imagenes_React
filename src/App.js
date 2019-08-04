@@ -3,10 +3,12 @@ import axios from 'axios';
 
 // Importamos los componentes
 import Buscador from "./components/Buscador";
+import ListadoImagenes from "./components/ListadoImagenes";
 
 function App() {
 
     const [busqueda, setBusqueda] = useState('');
+    const [imagenes, setImagenes] = useState([]);
 
     useEffect( ()=> {
 
@@ -19,8 +21,8 @@ function App() {
 
         const resultado = await axios.get(url)
 
-        console.log(resultado);
-
+        setImagenes(resultado.data.hits);
+        
       } 
       consultarApi(); 
     },[busqueda]);
@@ -32,7 +34,7 @@ function App() {
                 <Buscador setBusqueda={setBusqueda} />
             </div>
             <div className="row justify-content-center" >
-            
+              <ListadoImagenes imagenes={imagenes} />
             </div>
         </div>
     );
