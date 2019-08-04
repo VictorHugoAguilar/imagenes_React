@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Error from "./Error";
 
 function Buscador({setBusqueda}) {
-    const [termino, setTermino] = useState("");
+    const [termino, setTermino] = useState('');
     const [error, setError] = useState(false);
 
     const buscarImagen = e => {
         e.preventDefault();
         // Validar datos
-        if (termino === "") {
+        if (termino === '') {
             setError(true);
             return;
         }
