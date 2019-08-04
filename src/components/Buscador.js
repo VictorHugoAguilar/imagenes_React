@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Error from "./Error";
 
-function Buscador({setBusqueda}) {
+function Buscador(props) {
+
+    const {setPaginaActual, setBusqueda} = props;
+
     const [termino, setTermino] = useState('');
     const [error, setError] = useState(false);
 
@@ -14,6 +17,7 @@ function Buscador({setBusqueda}) {
         }
         // Enviar el termino hacia el componente principal
         setError(false);
+        setPaginaActual(1);
         setBusqueda(termino);
     };
 
