@@ -7,6 +7,7 @@ const Imagen = ({ imagen }) => {
 
     const etiquetas = tags.split(",");
     // console.log(etiquetas);
+   
 
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -16,7 +17,9 @@ const Imagen = ({ imagen }) => {
                     <p className="card-text">{likes} Me Gusta</p>
                     <p className="card-text">{views} Vistas</p>
                     {etiquetas.map(etiqueta => (
-                        <span class="badge badge-pill badge-info mr-1">
+                        <span
+                        key={etiquetas.indexOf(etiqueta)} 
+                        className="badge badge-pill badge-info mr-1">
                             {etiqueta}
                         </span>
                     ))}
